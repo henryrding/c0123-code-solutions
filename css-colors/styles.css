@@ -5,11 +5,11 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
-  background-color: aliceblue;
 }
 
 section {
   padding: 1.5rem 0;
+  background-color: aliceblue;
 }
 
 h2 {
