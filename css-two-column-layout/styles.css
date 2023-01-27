@@ -24,15 +24,19 @@ h1 {
 p {
   color: #4a4a4a;
   font-weight: 400;
-  font-size: 14.5px;
+  font-size: 14px;
 }
 
 h3 {
   text-transform: uppercase;
   margin-top: 2.5rem;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   padding-top: 45px;
+}
+
+.quality {
+  padding-right: 45px;
 }
 
 .column-full {
@@ -47,6 +51,8 @@ h3 {
 
 img {
   width: 100px;
+  height: 150px;
+  margin-top: 30px;
 }
 
 .learn-more-button {
