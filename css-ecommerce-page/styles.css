@@ -1,0 +1,33 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  padding: 0 12%;
+}
+
+.column-one-fifth {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 20%;
+  align-items: flex-start;
+  padding: 0 1%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.gray-text {
+  color: gainsboro;
+}
+
+p {
+  font-weight: bold;
+}
