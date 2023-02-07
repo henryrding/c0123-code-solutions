@@ -1,0 +1,35 @@
+body {
+  margin: 0%;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.light-bulb {
+  flex-basis: calc(100%/5);
+  border-radius: 50%;
+  padding: 10%;
+  border: none;
+}
+
+.off {
+  background-color: #252525;
+  box-shadow: 0 -1rem 5px 10px black;
+}
+
+.on {
+  background-color: #faea84;
+  box-shadow: 0 0 10px 20px #fef5d6;
+}
+
+.dark {
+  background-color: #111;
+}
+
+.light {
+  background-color: #fef9f1;
+}
