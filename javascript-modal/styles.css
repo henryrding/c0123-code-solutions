@@ -1,0 +1,63 @@
+body {
+  margin: 0%;
+  font-family: sans-serif;
+}
+
+.background {
+  min-height: 100vh;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.popup {
+  display: flex;
+  min-height: 100vh;
+  background-color: rgb(0 0 0 / 75%);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+}
+
+.under {
+  z-index: 0;
+}
+
+.over {
+  z-index: 2;
+}
+
+section {
+  background-color: white;
+  width: fit-content;
+  padding: 40px;
+  border-radius: 7px;
+}
+
+h2 {
+  margin: 0 0 40px;
+}
+
+button {
+  font-size: 26px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 30px;
+  box-shadow: 0 2px 2px 0 gray;
+}
+
+.open-modal-button {
+  background-color: #4a4ae9;
+  margin: 8px;
+}
+
+.no-button {
+  background-color: #eb5d5d;
+}
+
+button:hover {
+  cursor: pointer;
+}
