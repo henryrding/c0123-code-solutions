@@ -19,7 +19,8 @@ var calculator = {
     var sum = numbers[0];
     for (var i = 1; i < numbers.length; i++) {
       sum += numbers[i];
-    } return sum;
+    }
+    return sum;
   },
   getAverage: function (numbers) {
     return this.sumAll(numbers) / numbers.length;
