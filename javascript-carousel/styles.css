@@ -1,0 +1,28 @@
+.hidden {
+  display: none;
+}
+
+.container {
+  margin: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.column-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+i {
+  padding: 0.2rem;
+}
+
+img {
+  width: 60%;
+  padding-bottom: 1rem;
+}
