@@ -9,14 +9,18 @@ Account.prototype.deposit = function (amount) {
   if (amount > 0 && amount % 1 === 0) {
     this.transactions.push(new Transaction('deposit', amount));
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 };
 
 Account.prototype.withdraw = function (amount) {
   if (amount > 0 && amount % 1 === 0) {
     this.transactions.push(new Transaction('withdrawal', amount));
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 };
 Account.prototype.getBalance = function () {
   if (this.transactions.length === 0) {
