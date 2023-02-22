@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="column-side">
+        <i id="previous" class="fa-solid fa-chevron-left fa-2x"></i>
+      </div>
+      <div class="column-middle">
+        <img class="view" src="images/001.png" alt="Bulbasaur" data-view="1">
+        <img class="view hidden" src="images/004.png" alt="Charmander" data-view="2">
+        <img class="view hidden" src="images/007.png" alt="Squirtle" data-view="3">
+        <img class="view hidden" src="images/025.png" alt="Pikachu" data-view="4">
+        <img class="view hidden" src="images/039.png" alt="Jigglypuff" data-view="5">
+        <div class="progress-dots">
+          <i data-view="1" class="fa-solid fa-circle"></i>
+          <i data-view="2" class="fa-regular fa-circle"></i>
+          <i data-view="3" class="fa-regular fa-circle"></i>
+          <i data-view="4" class="fa-regular fa-circle"></i>
+          <i data-view="5" class="fa-regular fa-circle"></i>
+        </div>
+      </div>
+      <div class="column-side">
+        <i id="next" class="fa-solid fa-chevron-right fa-2x"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-full">
+
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
