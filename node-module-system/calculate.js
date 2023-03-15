@@ -3,26 +3,21 @@ import subtract from './subtract.js';
 import multiply from './multiply.js';
 import divide from './divide.js';
 
-const [, , ...values] = process.argv;
-const [firstNumericValue, operation, secondNumericValue] = values;
+const [, , firstNumericValue, operation, secondNumericValue] = process.argv;
 let result;
 switch (operation) {
   case 'plus':
-    result = add(Number(firstNumericValue), Number(secondNumericValue));
-    console.log('result:', result);
+    result = add(+firstNumericValue, +secondNumericValue);
     break;
   case 'minus':
-    result = subtract(Number(firstNumericValue), Number(secondNumericValue));
-    console.log('result:', result);
+    result = subtract(+firstNumericValue, +secondNumericValue);
     break;
   case 'over':
-    result = divide(Number(firstNumericValue), Number(secondNumericValue));
-    console.log('result:', result);
+    result = divide(+firstNumericValue, +secondNumericValue);
     break;
   case 'times':
-    result = multiply(Number(firstNumericValue), Number(secondNumericValue));
-    console.log('result:', result);
+    result = multiply(+firstNumericValue, +secondNumericValue);
     break;
-  default:
-    console.log('invalid operation');
 }
+
+console.log(result !== undefined ? `result: ${result}` : `invalid operation:, ${operation}`);
