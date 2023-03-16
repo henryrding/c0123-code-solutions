@@ -1,7 +1,8 @@
 function reduce(array, reducer, initialValue) {
-  const initial = initialValue !== undefined ? 0 : 1;
-  let reduced = initialValue !== undefined ? initialValue : array[0];
-  for (let i = initial; i < array.length; i++) {
+  const initial = initialValue !== undefined ? 1 : 0;
+  let reduced;
+  initialValue !== undefined ? reduced = reducer(initialValue, array[0]) : reduced = array[0];
+  for (let i = 1; i < array.length; i++) {
     reduced = reducer(reduced, array[i]);
   }
   return reduced;
