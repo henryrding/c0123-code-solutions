@@ -1,6 +1,5 @@
 function reduce(array, reducer, initialValue) {
-  let reduced;
-  initialValue !== undefined ? reduced = reducer(initialValue, array[0]) : reduced = array[0];
+  let reduced = initialValue !== undefined ? reducer(initialValue, array[0]) : array[0];
   for (let i = 1; i < array.length; i++) {
     reduced = reducer(reduced, array[i]);
   }
