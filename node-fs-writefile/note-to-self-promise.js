@@ -13,4 +13,7 @@ const [, , note] = process.argv;
 // writeRandPromise();
 
 fs.writeFile('note.txt', `${note}\n`)
-  .catch((err) => console.error(err.message));
+  .catch((err) => {
+    console.error(err.message);
+    process.exit(1);
+  });

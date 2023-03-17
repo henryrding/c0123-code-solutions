@@ -5,6 +5,7 @@ async function writeRandPromise() {
     await fs.writeFile('random.txt', `${Math.random()}\n`);
   } catch (err) {
     console.error(err.message);
+    process.exit(1);
   }
 }
 

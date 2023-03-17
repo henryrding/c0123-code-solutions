@@ -1,5 +1,8 @@
 import * as fs from 'node:fs';
 
-fs.writeFile('random.txt', `${Math.random()}\n`, (err, data) => {
-  if (err) throw err;
+fs.writeFile('random.txt', `${Math.random()}\n`, (err) => {
+  if (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
 });
