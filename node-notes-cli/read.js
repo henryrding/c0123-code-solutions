@@ -1,19 +1,9 @@
-import * as fs from 'node:fs/promises';
+import read from './read-file.js';
 
-export default async function readNotes(boolean) {
-  try {
-    const data = await fs.readFile('data.json', 'utf8');
-    const dataObject = JSON.parse(data);
-    const { notes } = dataObject;
-    if (boolean) {
-      for (const noteId in notes) {
-        console.log(`${noteId}: ${notes[noteId]}`);
-      }
-    }
-    return dataObject;
-  } catch (err) {
-    console.error(err.message);
-    process.exit(1);
+export default async function readNotes() {
+  const { notes } = await read();
+  for (const noteId in notes) {
+    console.log(`${noteId}: ${notes[noteId]}`);
   }
 }
 
