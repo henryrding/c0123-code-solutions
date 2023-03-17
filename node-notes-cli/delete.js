@@ -7,8 +7,7 @@ export default async function deleteNote(ids) {
     if (dataCopyObject.notes[id]) {
       delete dataCopyObject.notes[id];
     } else {
-      console.error(`Note ${id} doesn't exist!`);
-      process.exit(1);
+      throw new Error(`Note ${id} doesn't exist!`);
     }
   });
   await write(dataCopyObject);
