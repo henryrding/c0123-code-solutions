@@ -11,7 +11,7 @@ try {
     case 'add': await addNote(args); break;
     case 'delete': await deleteNote(args); break;
     case 'update': await updateNote(args[0], args.slice(1)); break;
-    default: console.error(`${feature} is not a feature!`); process.exit(1);
+    default: throw new Error(`${feature} is not a feature!`);
   }
 } catch (err) {
   console.error(err.message);
