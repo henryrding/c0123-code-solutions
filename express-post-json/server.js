@@ -1,6 +1,9 @@
 import express from 'express';
 
 const app = express();
+//  Middleware only used by routes below this. It won't do anything if body is
+//  not JSON or if there is no body
+app.use(express.json());
 let nextId = 1;
 const grades = {};
 
@@ -8,8 +11,6 @@ app.get('/api/grades', (req, res) => {
   const gradesArray = Object.values(grades);
   res.json(gradesArray);
 });
-
-app.use(express.json());
 
 app.post('/api/grades', (req, res) => {
   req.body.id = nextId;
