@@ -12,7 +12,7 @@ export default async function deleteNote(id) {
     delete dataCopyObject.notes[id];
     const exists = await write(dataCopyObject);
     if (!exists) {
-      return [201, ''];
+      return [204, ''];
     } else {
       return exists;
     }
