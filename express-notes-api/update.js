@@ -14,7 +14,7 @@ export default async function updateNote(id, note) {
     dataCopyObject.notes[id] = note;
     const exists = await write(dataCopyObject);
     if (!exists) {
-      return [201, ''];
+      return [200, ''];
     } else {
       return exists;
     }
