@@ -57,15 +57,17 @@ app.post('/api/grades', async (req, res) => {
     const gradeInput = req.body;
     const validKeys = ['name', 'course', 'score'];
     for (const key of validKeys) {
-      if (!gradeInput[key]) {
+      if (!Object.hasOwn(gradeInput, key)) {
         res.status(400).json({ error: `Input must include "${key}"` });
         return;
       }
     }
-    if (!Number.isInteger(gradeInput.score) || gradeInput.score < 0 || gradeInput.score > 100) {
+    const { course, name, score } = gradeInput;
+    if (!Number.isInteger(score) || score < 0 || score > 100) {
       res.status(400).json({ error: 'Value of "score" must be an integer from 0 to 100.' });
       return;
-    } else if (Object.keys(gradeInput).length > 3) {
+    }
+    if (Object.keys(gradeInput).length > 3) {
       res.status(400).json({ error: 'Input must only include "name", "course", and "score"' });
       return;
     }
@@ -74,7 +76,7 @@ app.post('/api/grades', async (req, res) => {
         values ($1, $2, $3)
         returning *;
     `;
-    const params = [gradeInput.name, gradeInput.course, gradeInput.score];
+    const params = [name, course, score];
     const result = await db.query(sql, params);
     const grade = result.rows[0];
     res.status(201).json(grade);
@@ -99,7 +101,8 @@ app.put('/api/grades/:gradeId', async (req, res) => {
         return;
       }
     }
-    if (!Number.isInteger(gradeInput.score) || gradeInput.score < 0 || gradeInput.score > 100) {
+    const { course, name, score } = gradeInput;
+    if (!Number.isInteger(score) || score < 0 || score > 100) {
       res.status(400).json({ error: 'Value of "score" must be an integer from 0 to 100.' });
       return;
     } else if (Object.keys(gradeInput).length > 3) {
@@ -114,7 +117,7 @@ app.put('/api/grades/:gradeId', async (req, res) => {
        where "gradeId" = $4
        returning *;
     `;
-    const params = [gradeInput.name, gradeInput.course, gradeInput.score, gradeId];
+    const params = [name, course, score, gradeId];
     const result = await db.query(sql, params);
     const updatedGrade = result.rows[0];
     if (updatedGrade) {
