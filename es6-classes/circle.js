@@ -7,7 +7,7 @@ class Circle extends Shape {
   }
 
   print() {
-    return `${super.print()}, width: ${this.radius}`;
+    return `${super.print()}, radius: ${this.radius}`;
   }
 }
 

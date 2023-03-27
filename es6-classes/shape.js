@@ -1,7 +1,5 @@
 /* exported Shape */
 class Shape {
-  area;
-  circumference;
   constructor(area, circumference) {
     this.area = area;
     this.circumference = circumference;
@@ -12,5 +10,5 @@ class Shape {
   }
 }
 
-const shape = new Shape();
+const shape = new Shape(1, 4);
 console.log(shape.print());
