@@ -1,20 +1,6 @@
 import './App.css';
+import {CustomButtonClass, CustomButtonStyle} from './customButton'
 
-function CustomButtonClass({ text, color }) {
-  return (
-    <button className={ color }>
-      {text}
-    </button>
-  )
-}
-
-function CustomButtonStyle({ text, color}) {
-  return (
-    <button style={{"background-color": color}}>
-      {text}
-    </button>
-  )
-}
 
 function App() {
   return (
