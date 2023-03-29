@@ -1,0 +1,34 @@
+.Row {
+  display: flex;
+  justify-content: center;
+}
+
+.Column {
+  height: 100vh;
+  width: 13rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.background {
+  position: relative;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+  border: 0.2rem solid black;
+}
+
+.circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  border: 0.2rem solid black;
+}
+
+p {
+  font-size: 40px;
+  line-height: 0;
+}
