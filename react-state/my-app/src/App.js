@@ -1,6 +1,5 @@
 import './App.css';
-import ToggleButton from './ToggleButton';
-import { ToggleLamberto } from './ToggleButton';
+import ToggleButton, {ToggleLamberto} from './ToggleButton';
 
 function App() {
   return (
