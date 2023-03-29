@@ -1,0 +1,18 @@
+.Row {
+  display: flex;
+  justify-content: center;
+}
+
+.Column {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  font-size: 36px;
+  padding: 20px 36px;
+  border: 0.25rem black solid;
+  border-radius: 3%;
+  box-shadow: 0.25rem 0.25rem rgb(0 0 0 / 90%);
+}
