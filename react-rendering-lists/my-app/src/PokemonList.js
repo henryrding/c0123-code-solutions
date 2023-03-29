@@ -1,0 +1,6 @@
+export default function PokemonList({ pokedex }) {
+  const listItems = pokedex.map(pokemon => <li id={pokemon.number}>{pokemon.name}</li>)
+  return (
+    <ul>{listItems}</ul>
+  );
+}
