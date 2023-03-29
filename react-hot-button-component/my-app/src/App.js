@@ -1,11 +1,11 @@
 import './App.css';
-import HeatButton from './HotButton';
+import HotButton from './HotButton';
 
 function App() {
   return (
     <div className='Row'>
       <div className='Column'>
-        <HeatButton />
+        <HotButton />
       </div>
     </div>
   );

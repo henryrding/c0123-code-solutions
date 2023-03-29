@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function HeatButton() {
+export default function HotButton() {
   const [clickIndex, setClickIndex] = useState(0);
 
   function handleClick() {
