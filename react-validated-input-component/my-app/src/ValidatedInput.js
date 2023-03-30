@@ -71,7 +71,7 @@ export default function ValidatedInput() {
               onChange={event => setPassword(event.target.value)}>
         </input>
         <span className="icon">{(errorMessage === '') ? "✔️" : "❌"}</span>
-        <p className="error-message">{errorMessage}</p>
+        {(errorMessage !== '') && <p className="error-message">{errorMessage}</p>}
       </form>
     </>
   )
