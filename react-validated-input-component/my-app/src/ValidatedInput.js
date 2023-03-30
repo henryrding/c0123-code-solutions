@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './ValidatedInput.css'
 
-export default function ValidatedInput() {
+export default function ValidatedInput({ Data }) {
   const [password, setPassword] = useState('');
 
   // let errorMessage;
@@ -26,30 +26,8 @@ export default function ValidatedInput() {
   // }
 
   let errorMessage = '';
-  const validationData = [
-    {
-      regex: /.{1,}/,
-      error: 'A password is required.'
-    },
-    {
-      regex: /.{8,}/,
-      error: 'Your password is too short.'
-    },
-    {
-      regex: /\d/,
-      error: 'Your password must contain a digit.'
-    },
-    {
-      regex: /[A-Z]/,
-      error: 'Your password must contain a capital letter.'
-    },
-    {
-      regex: /[!@#$%^&*()]/,
-      error: 'Your password must contain a special character ( ! ,  @ ,  # ,  $ ,  % ,  ^ ,  & ,  * ,  ( , or  ) ).'
-    }
-  ]
 
-  for (const validation of validationData) {
+  for (const validation of Data) {
     if (!validation.regex.test(password)) {
       errorMessage = validation.error;
       break;
@@ -59,7 +37,7 @@ export default function ValidatedInput() {
   return (
     <>
       <img src="https://media.licdn.com/dms/image/D5603AQHskoJ15lo5Ww/profile-displayphoto-shrink_400_400/0/1678146443075?e=1685577600&v=beta&t=xAfCn2tlCv7VHsJ-aGWfsa1fjKo511pO-5Wlrc3iXT0" className={(errorMessage === '') ? "App-logo-fast" : "App-logo"} alt="Lamberto" />
-      <form>
+      <section>
         <label htmlFor="password">
           Password
         </label>
@@ -70,9 +48,9 @@ export default function ValidatedInput() {
               value={password}
               onChange={event => setPassword(event.target.value)}>
         </input>
-        <span className="icon">{(errorMessage === '') ? "✔️" : "❌"}</span>
-        {(errorMessage !== '') && <p className="error-message">{errorMessage}</p>}
-      </form>
+        <span className="icon">{(!errorMessage) ? "✔️" : "❌"}</span>
+        {(errorMessage) && <p className="error-message">{errorMessage}</p>}
+      </section>
     </>
   )
 }
