@@ -1,0 +1,26 @@
+form {
+  position: relative;
+}
+
+label {
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+input {
+  border: 0.2rem solid black;
+}
+
+.icon {
+  width: 2rem;
+  position: fixed;
+  text-align: center;
+}
+
+.error-message {
+  text-align: left;
+  color: red;
+  height: 1rem;
+  margin: 0;
+  position: fixed;
+}
