@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './ValidatedInput.css'
 
-export default function ValidatedInput({ Data }) {
+export default function ValidatedInput({ data }) {
   const [password, setPassword] = useState('');
 
   // let errorMessage;
@@ -27,7 +27,7 @@ export default function ValidatedInput({ Data }) {
 
   let errorMessage = '';
 
-  for (const validation of Data) {
+  for (const validation of data) {
     if (!validation.regex.test(password)) {
       errorMessage = validation.error;
       break;

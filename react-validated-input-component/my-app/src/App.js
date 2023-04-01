@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ValidatedInput Data={validationData}/>
+        <ValidatedInput data={validationData}/>
       </header>
     </div>
   );
