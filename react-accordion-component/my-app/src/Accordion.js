@@ -10,14 +10,14 @@ export default function Accordion({ topicsArray }) {
 
   return (
     <div className="container">
-      <Buttons data={topicsArray} current={currentIndex} onClick={HandleOnClick} />
+      <Topics data={topicsArray} current={currentIndex} onClick={HandleOnClick} />
     </div>
   );
 }
 
-function Buttons({ data, current, onClick }) {
-  const buttons = data.map((topic, index) => (
-    <Button
+function Topics({ data, current, onClick }) {
+  const topics = data.map((topic, index) => (
+    <TopicComponent
       key={index}
       text={topic.title}
       onClick={() => onClick(index)}
@@ -28,12 +28,12 @@ function Buttons({ data, current, onClick }) {
 
   return (
     <>
-      {buttons}
+      {topics}
     </>
   );
 }
 
-function Button({ text, onClick, isActive, description }) {
+function TopicComponent({ text, onClick, isActive, description }) {
   return (
     <>
       <button className="topic-button" onClick={onClick}>{text}</button>
