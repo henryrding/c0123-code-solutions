@@ -1,0 +1,24 @@
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 413px;
+  position: relative;
+  top: 20vh;
+}
+
+.topic-button {
+  font-size: 1.8rem;
+  text-align: left;
+  border: 0.2rem solid black;
+}
+
+.topic-description {
+  border: 0.2rem solid black;
+  margin: 0%;
+  padding: 0.2rem;
+}
