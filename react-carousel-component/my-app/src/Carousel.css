@@ -1,0 +1,38 @@
+.Slideshow {
+  width: 95vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.No-style {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.Carousel-image {
+  width: 475px;
+  height: 475px;
+  object-fit: scale-down;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Zoom {
+    animation: Zoom 0.5s ease-in-out;
+  }
+}
+
+@keyframes Zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
