@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import readItems from './read';
 
 export default function List() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(undefined);
   const [items, setItems] = useState([]);
   const [error, setError] = useState();
 
@@ -13,23 +13,22 @@ export default function List() {
   //    - Handle errors from `readItems`
 
   useEffect(() => {
-    (async () => {
-      try {
-        const list = await readItems();
-        setIsLoading(false);
-        setItems(list);
-      } catch (err) {
-        setError(err);
-      }
-    })();
-    return () => {
+    if (isLoading === undefined) {
       setIsLoading(true);
-      setItems([])
-      setError();
+      (async () => {
+        try {
+          const list = await readItems();
+          setItems(list);
+        } catch (err) {
+          setError(err);
+        } finally {
+          setIsLoading(false);
+        }
+      })();
     }
-  },[]);
+  },[isLoading]);
 
-  if (isLoading) {
+  if (isLoading || isLoading === undefined) {
     return <div>Loading...</div>;
   }
 
