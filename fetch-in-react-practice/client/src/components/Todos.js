@@ -34,7 +34,7 @@ export default function Todos() {
     })();
   }, []);
 
-  function addTodo(newTodo) {
+  async function addTodo(newTodo) {
     /* Use fetch to send a POST request to `/api/todos`.
      * Once the response JSON is received and parsed,
      *   - set the Todos to a new array with the added Todo concatenated
@@ -48,7 +48,6 @@ export default function Todos() {
      * TIP: Use Array.prototype.concat to create a new array containing the contents
      * of the old array, plus the object returned by the server.
      */
-    (async () => {
       try {
         const response = await fetch(url('/api/todos'), {
           method: "POST",
@@ -67,10 +66,9 @@ export default function Todos() {
       } finally {
         setIsLoading(false);
       }
-    })();
   }
 
-  function toggleCompleted(todoId) {
+  async function toggleCompleted(todoId) {
     /* Find the index of the todo with the matching todoId in the state array.
      * Get its "isCompleted" status.
      * Make a new object containing ONE PROPERTY: the opposite "isCompleted" status.
@@ -93,18 +91,10 @@ export default function Todos() {
      * TIP: When calling fetch, be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
-    let todoIndex;
-    for (let i = 0; i < todos.length ; i++) {
-      if (todos[i].todoId === todoId) {
-        todoIndex = i;
-      }
-    }
-    const isCompletedStatus = todos[todoIndex].isCompleted;
-    // const [selectedTodo] = todos.filter((todo) =>  todo.todoId === todoId);
-    // const isCompletedStatus = selectedTodo.isCompleted;
-    const newObject = { isCompleted: !isCompletedStatus};
-    (async () => {
       try {
+        const todoIndex = todos.findIndex((todo) => todo.todoId === todoId)
+        const isCompletedStatus = todos[todoIndex].isCompleted;
+        const newObject = { isCompleted: !isCompletedStatus };
         const response = await fetch(url(`/api/todos/${todoId}`), {
           method: "PATCH",
           headers: {
@@ -116,14 +106,13 @@ export default function Todos() {
           throw new Error(`Bad server response: ${response.status}`);
         }
         const data = await response.json();
-        const updatedData = todos.map((todo, index) => todo.todoId === todoId ? data : todo)
+        const updatedData = todos.map(todo => todo.todoId === todoId ? data : todo)
         setTodos(updatedData);
       } catch (err) {
         setError(err);
       } finally {
         setIsLoading(false);
       }
-    })();
   }
 
   if (isLoading) {
