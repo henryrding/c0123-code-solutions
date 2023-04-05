@@ -21,8 +21,11 @@ export function authorizationMiddleware(req, res, next) {
     * https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback
     */
   const auth = req.get('Authorization');
+  if (!auth) {
+    throw new ClientError(401, 'authentication required');
+  }
   const token = auth.split('Bearer ')[1];
-  if (!auth || !token) {
+  if (!token) {
     throw new ClientError(401, 'authentication required');
   }
   const payload = jwt.verify(token, process.env.TOKEN_SECRET);
