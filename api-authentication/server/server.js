@@ -61,8 +61,7 @@ app.post('/api/auth/sign-in', async (req, res, next) => {
       const isMatching = await argon2.verify(user.hashedPassword, password);
       if (!isMatching) {
         throw new ClientError(401, 'invalid login');
-      }
-      if (isMatching) {
+      } else {
         const payload = {
           userId: user.userId,
           username
