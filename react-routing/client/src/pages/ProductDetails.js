@@ -41,7 +41,7 @@ export default function ProductDetails() {
         <div className="card-body">
           <div className="row">
             <div className="col">
-              <Link to={`/`} className="btn text-secondary">&lt; Back to catalog</Link>
+              <Link to="/" className="btn text-secondary">&lt; Back to catalog</Link>
             </div>
           </div>
           <div className="row mb-4">
